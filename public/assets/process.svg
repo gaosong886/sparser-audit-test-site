@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="430" viewBox="0 0 560 430" fill="none">
+  <rect width="560" height="430" rx="12" fill="#EAF0E5"/>
+  <path d="M55 215H505" stroke="#AEC0AA" stroke-width="1.5"/>
+  <circle cx="105" cy="215" r="58" fill="#D9E4D2" stroke="#93AB8B"/>
+  <rect x="222" y="157" width="116" height="116" rx="3" fill="#F8FAF3" stroke="#93AB8B"/>
+  <path d="M455 150 520 215 455 280 390 215 455 150Z" fill="#1E5C42"/>
+  <circle cx="105" cy="215" r="20" stroke="#1E5C42" stroke-width="2"/>
+  <path d="M268 203H292M268 215H286M268 227H292" stroke="#1E5C42" stroke-width="2" stroke-linecap="round"/>
+  <path d="m439 215 10 10 22-24" stroke="#EEF4E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <g font-family="Arial,sans-serif" font-size="14" text-anchor="middle" fill="#315A40">
+    <text x="105" y="316">Listen</text><text x="280" y="316">Frame</text><text x="455" y="316">Make</text>
+  </g>
+  <text x="32" y="44" font-family="Arial,sans-serif" font-size="10" letter-spacing="2" fill="#526E4C">FIELDNOTE / PROCESS STUDY</text>
+  <text x="32" y="397" font-family="Arial,sans-serif" font-size="10" fill="#526E4C">An original diagram for the Sparser test website.</text>
+</svg>

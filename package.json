@@ -1,0 +1,14 @@
+{
+  "name": "sparser-audit-test-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A controlled, fictional three-page website for testing Sparser audits and targeted fixes.",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests/content.test.mjs tests/server.test.mjs",
+    "test:seo": "node --test tests/seo.test.mjs",
+    "check": "node --test tests/*.test.mjs"
+  },
+  "engines": { "node": ">=22" }
+}

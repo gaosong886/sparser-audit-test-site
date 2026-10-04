@@ -1,0 +1,103 @@
+{
+  "pages": {
+    "index.html": {
+      "text": "Skip to content A fictional studio. A real test of better website visibility. Fieldnote Studio Work About Make room for the useful. Fieldnote is a fictional independent design studio exploring clear websites, considered identities, and the small decisions that make them work. Explore the sample work → A three-page demo created for Sparser. A simple process. Enough room to think. Thoughtful starts. Clear outcomes. This demo brings together a small set of connected pages, real navigation, and original sample copy. It is built to make website audits and focused improvements easy to inspect. Meet the idea behind Fieldnote ↗ Fieldnote Studio · Sparser test website Fictional studio and concept work. No commercial services or client claims.",
+      "links": [
+        {
+          "href": "#main",
+          "text": "Skip to content"
+        },
+        {
+          "href": "/",
+          "text": "Fieldnote Studio"
+        },
+        {
+          "href": "/work/",
+          "text": "Work"
+        },
+        {
+          "href": "/about/",
+          "text": "About"
+        },
+        {
+          "href": "/work/",
+          "text": "Explore the sample work →"
+        },
+        {
+          "href": "/about/",
+          "text": "Meet the idea behind Fieldnote ↗"
+        }
+      ],
+      "images": [
+        {
+          "src": "/assets/process.svg",
+          "width": "560",
+          "height": "430"
+        }
+      ]
+    },
+    "work/index.html": {
+      "text": "Skip to content A fictional studio. A real test of better website visibility. Fieldnote Studio Work About Small projects. Thoughtful outcomes. Two concept briefs for an imaginary studio. These are demonstration projects, not client engagements. The Reading Room. Concept website A place for the next chapter. A sample website concept for a neighborhood library: clearer opening hours, a welcoming events list, and a direct route to finding a book. Focus: information architecture, plain language, and accessible navigation. Paper & purpose. Concept identity Less noise. More character. A fictional stationery identity exploring warm color, generous space, and a consistent typographic rhythm across a compact website. Focus: visual identity, reusable styles, and purposeful content. Good work starts with a useful question. Read about the studio ↗ Fieldnote Studio · Sparser test website Fictional studio and concept work. No commercial services or client claims.",
+      "links": [
+        {
+          "href": "#main",
+          "text": "Skip to content"
+        },
+        {
+          "href": "/",
+          "text": "Fieldnote Studio"
+        },
+        {
+          "href": "/work/",
+          "text": "Work"
+        },
+        {
+          "href": "/about/",
+          "text": "About"
+        },
+        {
+          "href": "/about/",
+          "text": "Read about the studio ↗"
+        }
+      ],
+      "images": []
+    },
+    "about/index.html": {
+      "text": "Skip to content A fictional studio. A real test of better website visibility. Fieldnote Studio Work About Better questions. Clearer work. Fieldnote Studio is a small fictional world built for a practical purpose: testing how Sparser discovers, explains, and helps repair website issues. Listen. Frame. Make. We begin with what a visitor needs to understand. Then we organize the content, choose the few elements that matter, and make the path forward easier to follow. The words, links, and image on this site are deliberate test content. A good repair should improve the underlying page without discarding its character. See the concept projects ↗ The three connected stages of the Fieldnote approach. Made for testing, not for taking briefs. This is a public demonstration fixture. Fieldnote is not a trading studio, and the sample projects do not represent real clients. Return to the homepage ↗ Fieldnote Studio · Sparser test website Fictional studio and concept work. No commercial services or client claims.",
+      "links": [
+        {
+          "href": "#main",
+          "text": "Skip to content"
+        },
+        {
+          "href": "/",
+          "text": "Fieldnote Studio"
+        },
+        {
+          "href": "/work/",
+          "text": "Work"
+        },
+        {
+          "href": "/about/",
+          "text": "About"
+        },
+        {
+          "href": "/work/",
+          "text": "See the concept projects ↗"
+        },
+        {
+          "href": "/",
+          "text": "Return to the homepage ↗"
+        }
+      ],
+      "images": [
+        {
+          "src": "/assets/process.svg",
+          "width": "560",
+          "height": "430"
+        }
+      ]
+    }
+  },
+  "processDiagramSha256": "dcef71d5b7dbf04ce2dfb9c632ecaa6c645511733cf53adaea5efe609eaebb88"
+}
