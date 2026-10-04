@@ -6,7 +6,8 @@
   "description": "A controlled, fictional three-page website for testing Sparser audits and targeted fixes.",
   "scripts": {
     "start": "node server.mjs",
-    "test": "node --test tests/content.test.mjs tests/server.test.mjs",
+    "build": "node build.mjs --origin https://gaosong886.github.io --base-path /sparser-audit-test-site",
+    "test": "node --test tests/content.test.mjs tests/server.test.mjs tests/build.test.mjs",
     "test:seo": "node --test tests/seo.test.mjs",
     "check": "node --test tests/*.test.mjs"
   },

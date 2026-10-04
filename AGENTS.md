@@ -7,3 +7,4 @@ This is a fictional website used to verify Sparser's audit and code-fix workflow
 - Run `npm test` for content and server regression checks. Run `npm run test:seo` for the three targeted SEO acceptance checks. It fails on the initial baseline and should pass after all three selected defects are corrected.
 - Do not remove tests, weaken assertions, edit the preservation baseline, or add fabricated commercial claims to make a check pass.
 - Do not add package dependencies or copy environment files, keys, account tokens, or other credentials into this repository.
+- `public/` is the only HTML/CSS/asset source. The `gh-pages` branch is generated deployment output; change source on a working branch, run checks, and rebuild after merging. Do not patch generated HTML as a substitute for a source fix.

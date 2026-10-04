@@ -2,6 +2,7 @@ import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { publishTarget, renderHtml, renderRobots, renderSitemap } from "./site.mjs";
 
 const directory = dirname(fileURLToPath(import.meta.url));
 const documents = new Map([
@@ -11,7 +12,6 @@ const documents = new Map([
   ["/styles.css", ["styles.css", "text/css; charset=utf-8"]],
   ["/assets/process.svg", ["assets/process.svg", "image/svg+xml"]],
 ]);
-const paths = ["/", "/work/", "/about/"];
 
 function publicOrigin(request, configuredOrigin) {
   if (configuredOrigin) {
@@ -49,16 +49,14 @@ export function createSiteServer({ siteOrigin = process.env.SITE_ORIGIN } = {}) 
         return;
       }
       const origin = publicOrigin(request, siteOrigin);
+      const target = publishTarget(origin);
       let content;
       let contentType;
       if (pathname === "/robots.txt") {
-        content = `User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`;
+        content = renderRobots(target);
         contentType = "text/plain; charset=utf-8";
       } else if (pathname === "/sitemap.xml") {
-        content = '<?xml version="1.0" encoding="UTF-8"?>\n' +
-          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-          paths.map((path) => `  <url><loc>${origin}${path}</loc></url>`).join("\n") +
-          "\n</urlset>\n";
+        content = renderSitemap(target);
         contentType = "application/xml; charset=utf-8";
       } else {
         const entry = documents.get(pathname);
@@ -69,7 +67,7 @@ export function createSiteServer({ siteOrigin = process.env.SITE_ORIGIN } = {}) 
         }
         const [file, type] = entry;
         content = await readFile(join(directory, "public", file), "utf8");
-        content = content.replaceAll("{{SITE_ORIGIN}}", origin);
+        if (type.startsWith("text/html")) content = renderHtml(content, target);
         contentType = type;
       }
       response.writeHead(200, { "Content-Type": contentType });

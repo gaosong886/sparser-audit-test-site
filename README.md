@@ -17,7 +17,42 @@ The server binds only to `127.0.0.1:3050`:
 - About: `http://127.0.0.1:3050/about/`
 - Crawl discovery: `/robots.txt` and `/sitemap.xml`
 
-An external crawler needs a public URL. A separately managed tunnel may expose this test server. The server uses the tunnel's forwarded host/protocol for canonical links and sitemap URLs, or accepts an explicit `SITE_ORIGIN=https://your-public-host` environment value. Do not expose the Sparser application's port or any other local service through the fixture tunnel.
+An external crawler needs a public URL. The static GitHub Pages deployment is:
+
+```text
+https://gaosong886.github.io/sparser-audit-test-site/
+```
+
+The local Node server remains independent of that public deployment. It also supports an explicit `SITE_ORIGIN` for canonical/sitemap URLs; no external tunnel is required for GitHub Pages.
+
+## Build and publish to GitHub Pages
+
+```sh
+npm run build
+```
+
+The zero-dependency build writes nine publishable files to `.local/pages`. The `public/` source stays unchanged. Root-relative links and asset paths gain the `/sparser-audit-test-site` prefix only in generated output, and canonical/sitemap URLs use the public origin. The build preserves the intentional SEO defects until their source is repaired.
+
+In the repository's Pages settings, select **Deploy from a branch**, branch **gh-pages**, folder **/ (root)**. The generated branch contains `.nojekyll`; there is no custom Actions workflow.
+
+An ignored worktree at `.local/pages-publish` owns the generated `gh-pages` branch. After a source repair has been reviewed and merged into `main`, pull it into this source checkout, run `npm run check`, then rebuild and publish:
+
+```powershell
+npm run build
+Copy-Item -Path '.local/pages/*' -Destination '.local/pages-publish' -Recurse -Force
+git -C .local/pages-publish add --all
+git -C .local/pages-publish commit -m 'Publish tested website changes'
+git -C .local/pages-publish push origin gh-pages
+```
+
+If the local worktree is missing but the remote branch already exists, restore it first:
+
+```sh
+git fetch origin gh-pages
+git worktree add --track -b gh-pages .local/pages-publish origin/gh-pages
+```
+
+If the local `gh-pages` branch already exists, use `git worktree add .local/pages-publish gh-pages` instead. Keep all authored HTML changes on the source branch; generated output is not a second source of truth. The current fixture has a fixed set of pages/assets. If that set changes later, remove obsolete generated files from the publishing worktree before committing.
 
 ## Controlled baseline
 
@@ -54,9 +89,11 @@ public/
   styles.css
   assets/process.svg
 server.mjs
+site.mjs
+build.mjs
 tests/
 ```
 
-No build is needed. The server reads the files for each request, so a local checkout update is visible on reload. After a tested fix is pushed, update the local fixture checkout deliberately, run the checks, and repeat the public audit against the same tunnel URL.
+No build is needed for the local server. It reads public files for each request, so HTML/CSS changes become visible on reload. Restart the server after changing its JavaScript modules. GitHub Pages serves generated files from `gh-pages`; after a tested fix is merged, rebuild/publish and repeat the audit against the public Pages URL.
 
 Environment files and local process logs are ignored. Do not copy API keys, OAuth tokens, or other Sparser configuration into this repository.
