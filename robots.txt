@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gaosong886.github.io/sparser-audit-test-site/sitemap.xml
